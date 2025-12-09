@@ -3,7 +3,7 @@ A fictional IT Asset &amp; Computer Inventory Database — designed to demonstra
 
 ## Overview
 
-This repository contains a complete SQL portfolio project centered around a fictional Computer Inventory Management System. The goal is to demonstrate practical SQL abilities relevant to systems administration, IT asset management, reporting, and analytical work — including:
+This repository contains a complete SQL portfolio project centered around a fictional IT Asset Inventory System. The goal is to demonstrate practical SQL abilities relevant to systems administration, IT asset management, reporting, and analytical work — including:
 
 - Designing a simple but realistic relational data model
 - Writing business rules and identifying key entities
