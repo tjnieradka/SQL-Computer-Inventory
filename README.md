@@ -92,7 +92,7 @@ This portfolio project demonstrates the following:
 ## Database Scenario (Summary)
 
 A fictional company needs to track:
-- Computers (laptops, desktops, servers)
+- Computers (laptops, desktops, thin clients)
 - Users (employees and contractors)
 - Departments
 - Hardware models and vendors
