@@ -15,6 +15,17 @@ This repository contains a complete SQL portfolio project centered around a fict
 
 This project emphasizes clear explanations, practical examples, and intermediate-level SQL concepts — the level expected from a Systems Analyst, Reporting Analyst, or IT professional working with SQL for data insights.
 
+## Technology Stack
+
+This project was developed using the following tools and technologies:
+- Microsoft SQL Server Express 2022 — database engine used for creating and testing the inventory system
+- SQL Server Management Studio (SSMS) 20.2.1 — primary environment for writing and executing SQL scripts
+- Transact-SQL (T-SQL) — SQL dialect used for schema definitions, queries, and reference scripts
+- **Draw.io (diagrams.net) — used to create the Entity–Relationship (ER) diagram**
+- Windows 11 environment — the platform the database is running on
+- GitHub — version control and project hosting
+- Markdown — for structured documentation
+
 ## Repository Structure
 <PRE>
 SQL-Computer-Inventory/
