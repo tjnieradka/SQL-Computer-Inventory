@@ -9,7 +9,7 @@ The SQL Inventory Database in this project represents an internal system designe
 
 ## 2. Purpose of the Inventory System
 
-The Computer Inventory Tracking System is designed for the IT department of a mid-size to large organization. Its primary purpose is to provide a centralized and accurate record of all computer assets owned by the company.
+The IT Asset Inventory System is designed for the IT department of a mid-size to large organization. Its primary purpose is to provide a centralized and accurate record of all computer assets owned by the company.
 This project focuses on end-user computing assets only (for example, laptops, desktops, and related peripherals). Server infrastructure, storage systems, and network equipment are intentionally out of scope to keep the data model focused and easier to understand.
 The system tracks:
 
@@ -90,6 +90,6 @@ These can be added in future expansions.
 
 ## 7. Summary
 
-The Computer Inventory Tracking System provides TN Global Technologies with a reliable framework for managing its IT assets. By centralizing hardware, software, and employee assignment information, the company can streamline support operations, improve lifecycle planning, maintain compliance, and support long-term efficiency.
+The IT Asset Inventory System provides TN Global Technologies with a reliable framework for managing its IT assets. By centralizing hardware, software, and employee assignment information, the company can streamline support operations, improve lifecycle planning, maintain compliance, and support long-term efficiency.
 
 This business plan sets the context for the SQL data model used in this GitHub project.
