@@ -9,88 +9,108 @@ It is a **simplified, tentative model** for a learning project. The exact fields
 ## 1. Employee
 
 **Purpose**  
-Represents an individual employee who uses one or more company-owned computers.
+Represents an individual employee within TN Global Technologies who may be assigned one or more company-owned computers.
+---
 
-**Core Attributes (current simplified version):**
-- EmployeeID (PK)
-- FirstName
-- LastName
-- DepartmentID (FK → Department)
+### Core Attributes
+- EmpID (PK)
+- EmpFirst
+- EmpLast
+- EmpPositionID (FK → EmpPosition)
+- EmpOfficeID (FK → EmpOffice)
+- EmpStatusID (FK → EmpStatus)
+---
 
-### Possible Future Attributes *(not implemented in this version)*
-- JobTitle  
-- EmployeeNumber  
-- Status (Active / Inactive)  
-- LocationID  
-
-**Key Points**
-- Each employee is assigned at least one computer.
-- Some employees may have multiple computers.
-
-**Relationships**
-- One **Department** → Many **Employees**
+### Relationships
+- One **EmpPosition** → Many **Employees**
+- One **EmpOffice** → Many **Employees**
+- One **EmpStatus** → Many **Employees**
 - One **Employee** → Many **Computers**
 
 ---
 
-## 2. Department
+### Notes
+- Employee status, position, and office are modeled as lookup tables to ensure consistency and support reporting.
+- Each employee may be assigned zero or more computers.
+
+## 2. EmpPosition
 
 **Purpose**  
-Represents an organizational unit such as IT, Finance, Sales, or HR.
+Defines the job position or role assigned to an employee.
+---
+### Core Attributes
+- EmpPositionID (PK)
+- PositionName
 
-**Core Attributes (current simplified version):**
-- DepartmentID (PK)
-- DepartmentName
+### Relationships
+- One EmpPosition → Many Employees
 
-### Possible Future Attributes *(not implemented in this version)*
-- CostCenter  
-- Description  
+### Notes
+- Implemented as a lookup table to ensure consistent use of position names.
+- Supports reporting and filtering by employee role.
+---
+## 3. EmpOffice
 
-**Key Points**
-- Used to group employees and devices for organizational reporting.
+**Purpose**  
+Represents a physical or organizational office location where employees are assigned.
 
-**Relationships**
-- One **Department** → Many **Employees**
+### Core Attributes
+- EmpOfficeID (PK)
+- OfficeName
 
+### Relationships
+- One EmpOffice → Many Employees
+
+### Notes
+- Used to group employees by office for administrative and reporting purposes.
+---
+## 4. EmpStatus
+
+**Purpose**  
+Defines the current employment status of an employee.
+
+### Core Attributes
+- EmpStatusID (PK)
+- StatusName
+
+### Relationships
+- One EmpStatus → Many Employees
+
+### Notes
+- Typical status values include Active, Inactive, or On Leave.
+- Modeled as a lookup table to maintain data consistency.
 ---
 
-## 3. Computer
+## 5. Computer
 
-**Purpose**  
-Represents an end-user computing device assigned to an employee (desktop or laptop).
+**Purpose**
+Represents a physical computer asset owned by TN Global Technologies and managed as part of the computer inventory system.
 
-**Scope Note**  
-This system models **end-user devices** only. Servers, storage systems, and network infrastructure are out of scope.
+### Core Attributes
+- CompID (PK)
+- VenID (FK → Vendor)
+- CompTypeID (FK → CompType)
+- CompProcID (FK → CompProcessor)
+- CompRAMID (FK → CompRAM)
+- CompStatusID (FK → CompStatus)
+- EmpID (FK → Employee)
+- CompAssetTag
+- CompSerial
+- CompAcquired
+- CompModel
 
-**Core Attributes (current simplified version):**
-- ComputerID (PK)
-- SerialNumber  
-- DeviceType (Laptop, Desktop, etc.)
-- Model  
-- ManufacturerID (FK → Vendor)
-- Processor  
-- RAMGB  
-- StorageGB  
-- OperatingSystem  
-- EmployeeID (FK → Employee)
+### Relationships
+- One Vendor → Many Computers
+- One CompType → Many Computers
+- One CompProcessor → Many Computers
+- One CompRAM → Many Computers
+- One CompStatus → Many Computers
+- One Employee → Many Computers
 
-### Possible Future Attributes *(not implemented in this version)*
-- AssetTag  
-- PurchaseDate  
-- WarrantyEndDate  
-- ComputerName / Hostname  
-- Status (Active / InRepair / Retired)
-
-**Key Points**
-- Each computer is assigned to exactly one employee at a time.
-- Serial numbers must be unique.
-- Hardware specs can be updated if upgrades occur.
-
-**Relationships**
-- One **Employee** → Many **Computers**
-- One **Vendor** → Many **Computers**
-- One **Computer** → Many **SoftwareInstallations**
-
+### Notes
+- Each computer is associated with a single vendor, hardware configuration, and lifecycle status.
+- Employee assignment is modeled directly on the Computer entity to represent the current assigned user.
+- Hardware attributes are normalized into lookup tables to ensure consistency and simplify reporting.
 ---
 
 ## 4. Vendor
@@ -99,7 +119,7 @@ This system models **end-user devices** only. Servers, storage systems, and netw
 Represents the manufacturer or supplier of computers.
 
 **Core Attributes (current simplified version):**
-- VendorID (PK)
+- VenID (PK)
 - VendorName
 
 ### Possible Future Attributes *(not implemented in this version)*
@@ -121,11 +141,12 @@ Represents the manufacturer or supplier of computers.
 Represents an application or software package that may be installed on computers.
 
 **Core Attributes (current simplified version):**
-- SoftwareID (PK)
-- SoftwareName
+- SwID (PK)
+- SwTitle
+- SwVer
+- SwSerial
 
 ### Possible Future Attributes *(not implemented in this version)*
-- Version  
 - Category (Office, Development, Security, etc.)  
 - IsStandardInstall (Yes / No)
 
@@ -138,7 +159,7 @@ Represents an application or software package that may be installed on computers
 
 ---
 
-## 6. SoftwareInstallation (Linking Entity)
+## 6. Computer_Software (Linking Entity)
 
 **Purpose**  
 Represents the installation of a specific software product on a specific computer.  
@@ -146,9 +167,9 @@ Implements the many-to-many relationship between Computers and Software.
 
 **Core Attributes (current simplified version):**
 - SoftwareInstallationID (PK)  
-  *(or composite PK: ComputerID + SoftwareID depending on final design)*
-- ComputerID (FK → Computer)
-- SoftwareID (FK → Software)
+  *(or composite PK: CompID + SwID depending on final design)*
+- CompID (FK → Computer)
+- SwID (FK → Software)
 
 ### Possible Future Attributes *(not implemented in this version)*
 - InstallDate  
@@ -170,8 +191,8 @@ Implements the many-to-many relationship between Computers and Software.
 - **Department (1)** → **Employee (N)**  
 - **Employee (1)** → **Computer (N)**  
 - **Vendor (1)** → **Computer (N)**  
-- **Computer (1)** → **SoftwareInstallation (N)**  
-- **Software (1)** → **SoftwareInstallation (N)**  
+- **Computer (1)** → **Computer_Software (N)**  
+- **Software (1)** → **Computer_Software (N)**  
 
 This structure supports common IT asset questions such as:
 - Which computers belong to which employees?
