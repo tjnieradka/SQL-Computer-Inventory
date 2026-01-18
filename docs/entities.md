@@ -223,33 +223,44 @@ One **CompHDD** → Many **Computer_HDD** records
 - CompDriveSlot identifies the physical or logical slot in which the drive is installed.
 ---
 
+## 15. Vendor
 
+**Purpose**
+Represents an external vendor that supplies hardware and/or software to TN Global Technologies.
 
-
-
-
-
-## 4. Vendor
-
-**Purpose**  
-Represents the manufacturer or supplier of computers.
-
-**Core Attributes**
+### Core Attributes
 - VenID (PK)
-- VendorName
+- VenName
+- VenAddr
+- VenCity
+- VenProv
+- VenCountry
+- VenPost
+- VenPhone
+- VenFax
+- VenEmail
+- VenHW
+- VenSW
 
-### Possible Future Attributes *(not implemented in this version)*
-- SupportPhone  
-- SupportEmail  
-- WebsiteURL  
+### Relationships
 
-**Key Points**
-- Used to track manufacturers for reporting and warranty inquiries.
-
-**Relationships**
 - One **Vendor** → Many **Computers**
+- One **Vendor** → Many **Software** records
 
+### Notes
+- Vendors may supply hardware, software, or both.
+- Boolean-like flags (VenHW, VenSW) are implemented using a tinyint data type, where 1 indicates true and 0 indicates false.
+- Vendor contact and address details are centralized to support procurement and asset tracking.
 ---
+
+
+
+
+
+
+
+
+
 
 ## 5. Software
 
