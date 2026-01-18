@@ -37,8 +37,7 @@ SQL-Computer-Inventory/
 │   ├── business-rules.md
 │   ├── entities.md
 │   ├── er-diagram.png
-│   ├── normalization.md
-│   └── glossary.md (optional)
+│   └── normalization.md
 │
 ├── sql/
 │   ├── 01-create-database.sql
