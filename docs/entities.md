@@ -253,81 +253,98 @@ Represents an external vendor that supplies hardware and/or software to TN Globa
 - Vendor contact and address details are centralized to support procurement and asset tracking.
 ---
 
+## 16. Software
 
+**Purpose**
+Represents a software product that may be installed on one or more computers within TN Global Technologies.
 
-
-
-
-
-
-
-
-## 5. Software
-
-**Purpose**  
-Represents an application or software package that may be installed on computers.
-
-**Core Attributes (current simplified version):**
+### Core Attributes
 - SwID (PK)
+- VenID (FK → Vendor)
+- SwLangID (FK → SwLanguage)
+- SwLicnsID (FK → SwLicns)
+- SwStatusID (FK → SwStatus)
 - SwTitle
 - SwVer
 - SwSerial
 
-### Possible Future Attributes *(not implemented in this version)*
-- Category (Office, Development, Security, etc.)  
-- IsStandardInstall (Yes / No)
+### Relationships
+- One **Vendor** → Many **Software** records
+- One **SwLanguage** → Many **Software** records
+- One **SwLicns** → Many **Software** records
+- One **SwStatus** → Many **Software** records
+- One **Software** → Many **Computer_Software** records
 
-**Key Points**
-- Software may be standard for all users or specialized for certain roles.
-- Licensing models are out of scope for this project.
+### Notes
+- Software products are associated with a single vendor and licensing model.
+- Language, license type, and lifecycle status are normalized into lookup tables to ensure consistency.
+- Software installations on computers are modeled through the Computer_Software associative entity.
 
-**Relationships**
-- One **Software** → Many **SoftwareInstallations**
+## 17. SwStatus
 
----
+**Purpose**
+Defines the lifecycle status of a software product.
 
-## 6. Computer_Software (Linking Entity)
+### Core Attributes
+- SwStatusID (PK)
+- StatusName
 
-**Purpose**  
-Represents the installation of a specific software product on a specific computer.  
-Implements the many-to-many relationship between Computers and Software.
+### Relationships
+One **SwStatus** → Many **Software** records
 
-**Core Attributes (current simplified version):**
-- SoftwareInstallationID (PK)  
-  *(or composite PK: CompID + SwID depending on final design)*
-- CompID (FK → Computer)
-- SwID (FK → Software)
+### Notes
+- Typical status values may include Active, Deprecated, or Retired.
+- Modeled as a lookup table to ensure consistent lifecycle tracking.
 
-### Possible Future Attributes *(not implemented in this version)*
-- InstallDate  
-- InstalledBy  
-- Notes  
+## 18. SwLicns
 
-**Key Points**
-- Tracks which applications are installed on each device.
-- Used for inventory, audit, and maintenance planning.
+**Purpose**
+Defines the licensing model associated with a software product.
 
-**Relationships**
-- One **Computer** → Many **SoftwareInstallations**
-- One **Software** → Many **SoftwareInstallations**
+### Core Attributes
+- SwLicnsID (PK)
+- LicenseName
 
----
+### Relationships
+- One **SwLicns** → Many **Software** records
 
-## 7. Relationship Summary (High-Level)
+### Notes
+- Represents high-level licensing types (e.g., Per Device, Per User, Subscription).
+- Normalization simplifies reporting and license categorization.
 
-- **Department (1)** → **Employee (N)**  
-- **Employee (1)** → **Computer (N)**  
-- **Vendor (1)** → **Computer (N)**  
-- **Computer (1)** → **Computer_Software (N)**  
-- **Software (1)** → **Computer_Software (N)**  
+## 19. SwLanguage
 
-This structure supports common IT asset questions such as:
-- Which computers belong to which employees?
-- What hardware does each computer have?
-- What software is installed on each device?
-- Which vendor provided which equipment?
+**Purpose**
+Defines the primary language associated with a software product.
 
----
+## Core Attributes
+- SwLangID (PK)
+- LangCode
+
+## Relationships
+- One **SwLanguage** → Many **Software** records
+
+## Notes
+- Language values are stored using standardized language codes.
+- Implemented as a lookup table to ensure consistent language representation.
+
+## 20. Computer_Software
+
+**Purpose**
+Represents the installation of a software product on a specific computer.
+
+## Core Attributes
+- SwID (PK, FK → Software)
+- CompID (PK, FK → Computer)
+
+## Relationships
+- One **Computer** → Many **Computer_Software** records
+- One **Software** → Many **Computer_Software** records
+
+## Notes
+- Acts as an associative entity resolving the many-to-many relationship between computers and software.
+- Each record represents a single software installation on a computer.
+- Composite primary key prevents duplicate installations of the same software on a single computer.
 
 > **Note:**  
 > This document is conceptual. 
