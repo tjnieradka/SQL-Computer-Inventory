@@ -117,7 +117,29 @@ The database supports:
 Full details are in:
 `docs/business-plan.md`
 
-Included Learning Materials
+## Scope and Assumptions
+
+This database is intentionally scoped to demonstrate IT asset inventory
+and reporting concepts rather than serve as a full enterprise HR or
+facilities management system.
+
+The following design decisions were made intentionally:
+
+- Employee records are simplified and include only attributes required
+  for asset assignment and reporting.
+- Organizational structures such as departments and cost centers are
+  intentionally omitted and would typically be sourced from authoritative
+  HR systems in a real environment.
+- Office locations are represented at a high level and do not include
+  full address details, which are often maintained in facilities systems.
+- Employee contact details (email, phone) are excluded, as these are
+  commonly managed in directory or identity platforms rather than
+  asset databases.
+
+These boundaries reflect how enterprise systems are often integrated,
+with each system owning a specific domain of data.
+
+## Included Learning Materials
 - Normalization (1NF / 2NF / 3NF)
   - You’ll find short, memorable explanations in docs/normalization.md.
 - Indexing (Beginner-Friendly Explanation)
