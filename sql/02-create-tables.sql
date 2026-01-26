@@ -1,7 +1,25 @@
 /* ============================================================
-   Create Tables for ComputerInventory Database
-   TN Global Technologies (Fictional)
-   ============================================================ */
+   PURPOSE: Create all tables for the ComputerInventory database
+            based on the logical data model and ER diagram.
+
+   CONTEXT:
+   - TN Global Technologies (Fictional)
+   - IT Asset & Computer Inventory learning project
+
+   USE CASES:
+   - Initial schema creation after database setup
+   - Recreating tables after a schema reset
+   - Learning, reference, and portfolio demonstration
+
+   ASSUMPTIONS:
+   - Database 'ComputerInventory' already exists
+   - Script is executed in a non-production environment
+
+   NOTES:
+   - Tables are created in dependency-safe order
+   - Primary and foreign key constraints are explicitly defined
+   - Sample data is inserted separately
+============================================================ */
 
 USE ComputerInventory;
 GO
@@ -220,3 +238,4 @@ CREATE TABLE Computer_Software (
 );
 
 GO
+
