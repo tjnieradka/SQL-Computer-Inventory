@@ -37,6 +37,7 @@ SQL-Computer-Inventory/
 │   ├── business-rules.md
 │   ├── entities.md
 │   ├── er-diagram.png
+│   ├── indexing.md    
 │   └── normalization.md
 │
 ├── sql/
@@ -140,34 +141,11 @@ These boundaries reflect how enterprise systems are often integrated,
 with each system owning a specific domain of data.
 
 ## Included Learning Materials
-- Normalization (1NF / 2NF / 3NF)
-  - You’ll find short, memorable explanations in docs/normalization.md.
-- Indexing (Beginner-Friendly Explanation)
-  - Indexes are like a book’s index:
-  - They help SQL Server locate rows faster, instead of scanning the entire table.
-  - Two types covered:
-    - **Clustered Index**
-      - Defines the physical order of rows.
-      - One per table.
-      - Usually created on the Primary Key
-      - Best for columns frequently used in sorting or ranges
-      - Example: ComputerID
-
-    - **Nonclustered Index**
-      - Separate structure from the table
-      - Speeds up search conditions
-      - Best for columns used in WHERE or JOIN
-      - Example: SerialNumber search
-
-  - Other optimization topics (high-level only):
-    - SQL Server statistics
-      - Help the engine pick optimal query plans
-      - Automatically maintained
-    - Avoiding SELECT *
-    - Using appropriate data types
-    - Adding indexes only where necessary
-      - Too many can hurt performance
-
+- Database normalization (1NF / 2NF / 3NF)
+  - See `docs/normalization.md`
+- Indexing and basic optimization concepts
+  - See `docs/indexing.md`
+    
 ## Query Examples
 
 The sql/queries/ directory includes practical examples such as:
