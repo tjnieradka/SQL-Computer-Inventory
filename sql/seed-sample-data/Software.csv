@@ -1,1 +1,6 @@
-
+SwID,VenID,SwTitle,SwVer,SwLangID,SwLicnsID,SwSerial,SwStatusID
+1,7,Windows 10 Pro,22H2,1,1,WIN10PRO-22H2-001,1
+2,7,Windows 11 Pro,24H2,1,1,WIN11PRO-24H2-002,1
+3,7,Windows 10 Pro,1909,1,1,WIN10PRO-1909-003,2
+4,7,Windows Server 2019 Standard,1809,1,3,WINSRV2019-STD-004,1
+5,7,Windows Server 2022 Standard,21H2,1,3,WINSRV2022-STD-005,1
