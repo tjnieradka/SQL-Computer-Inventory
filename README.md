@@ -46,12 +46,18 @@ SQL-Computer-Inventory/
 │   ├── 03-insert-sample-data.sql
 │   ├── 04-drop-tables.sql
 │   ├── 05-drop-database.sql
+│   └── seed-sample-data/
+│       ├── Employee.csv
+│       └── Software.csv
 │   ├── reference/
-│   │   ├── get-table-schema.sql
-│   │   ├── get-primary-keys.sql
-│   │   ├── get-foreign-keys.sql
-│   │   ├── list-tables.sql
-│   │   └── sample-index-creation.sql
+│   │   ├── drop-table-example.sql
+│   │   ├── get-table-indexes-example.sql
+│   │   ├── get-table-primary-foreign-keys-example.sql
+│   │   ├── get-table-schema-basic.sql
+│   │   ├── get-table-schema-full.sql
+│   │   ├── inspect-junction-table-example.sql
+│   │   └── rename-table-column-example.sql
+│   │     
 │   └── queries/
 │       ├── join-examples.md
 │       ├── aggregation-examples.md
