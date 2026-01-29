@@ -5,7 +5,7 @@ This document demonstrates common SQL join patterns used to query and relate inv
 Output examples are shown from Microsoft SQL Server Management Studio (SSMS).
 The focus is on realistic IT asset management and reporting scenarios.
 
-## INNER JOIN
+## 1. INNER JOIN
 
 ### Find Computers Assigned to Employees at a Specific Office
 
@@ -39,7 +39,7 @@ ORDER BY e.EmpLast;
 - Appropriate when assignments are required
 
 
-## LEFT JOIN
+## 2. LEFT JOIN
 
 ### Find All Computers and Their Assigned Users 
 
@@ -71,7 +71,7 @@ ORDER BY c.CompID;
 
 
 
-## Many-to-Many
+## 3. Many-to-Many
 
 ### Find All Software Installed on Each Computer (Many-to-Many)
 
@@ -101,7 +101,7 @@ ORDER BY c.CompAssetTag, s.SwTitle;
 - Demonstrates many-to-many relationships
 - Common in software asset management
 
-## Join Summary
+## 4. Join Summary
 
 | Join Type   | Purpose                                      |
 |------------|----------------------------------------------|
