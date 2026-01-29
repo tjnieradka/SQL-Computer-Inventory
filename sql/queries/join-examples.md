@@ -1,6 +1,10 @@
 
 # Join Examples
 
+This document demonstrates common SQL join patterns used to query and relate inventory data in the ComputerInventory database.
+Output examples are shown from Microsoft SQL Server Management Studio (SSMS).
+The focus is on realistic IT asset management and reporting scenarios.
+
 ## INNER JOIN
 
 ### Find Computers Assigned to Employees at a Specific Office
@@ -24,7 +28,8 @@ INNER JOIN EmpOffice o
 WHERE o.OfficeName = 'Vancouver'
 ORDER BY e.EmpLast;
 ```
-**Output**  
+
+**Output**   
 
 <img width="447" height="453" alt="image" src="https://github.com/user-attachments/assets/2529459f-0a1d-4174-be22-ba45cb34a8e2" />
 
@@ -85,7 +90,8 @@ INNER JOIN Software s
     ON cs.SwID = s.SwID
 ORDER BY c.CompAssetTag, s.SwTitle;
 ```
-**Output (Partial shown)** 
+
+**Output (Partial shown)**  
 
 <img width="402" height="402" alt="image" src="https://github.com/user-attachments/assets/f017d7bd-4267-44ab-9476-3e6b9a665cd9" />
 
