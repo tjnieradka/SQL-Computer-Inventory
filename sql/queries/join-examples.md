@@ -101,3 +101,11 @@ ORDER BY c.CompAssetTag, s.SwTitle;
 - Demonstrates many-to-many relationships
 - Common in software asset management
 
+## Join Summary
+
+| Join Type   | Purpose                                      |
+|------------|----------------------------------------------|
+| INNER JOIN | Return only matching records from both tables |
+| LEFT JOIN  | Include all records from the left table       |
+|            | and matching records from the right table     |
+| Junction   |  Handle many-to-many relationships via a "bridge" table            |
