@@ -7,7 +7,7 @@
 
 **Use case:**
 View all computers assigned to employees in a given office (e.g., Vancouver).
-```
+```sql
 USE ComputerInventory;
 GO
 SELECT
@@ -40,12 +40,8 @@ ORDER BY e.EmpLast;
 
 **Use case:**
 List computers between asset tags of TN000080 and TN000100, including those that are not currently assigned to an employee.
-```
 
-
-USE ComputerInventory;
-GO
-
+```sql
 SELECT
     c.CompID,
     c.CompAssetTag,
@@ -77,7 +73,7 @@ ORDER BY c.CompID;
 **Use case:**
 Report installed software per computer using a junction table.
 
-```
+```sql
 SELECT
     c.CompAssetTag,
     s.SwTitle,
