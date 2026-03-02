@@ -25,7 +25,7 @@ HAVING COUNT(DISTINCT EmpID) > 1;
 **Expected result:**
 No rows returned.
 
-**Why this matters**
+**Why check this?**
 - Confirms enforcement of one-to-one assignment logic
 - Helps validate data integrity after imports or updates
 
@@ -65,6 +65,8 @@ WHERE CompSerial IS NOT NULL
 GROUP BY CompSerial
 HAVING COUNT(*) > 1;
 ```
+**Expected result:** 
+No rows returned.
 
 **Notes**
 - Serial numbers may be NULL.
