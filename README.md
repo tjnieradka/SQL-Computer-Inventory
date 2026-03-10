@@ -7,7 +7,6 @@ This repository contains a complete SQL portfolio project centered around a fict
 
 - Designing a simple but realistic relational data model
 - Writing business rules and identifying key entities
-- Creating an ER Diagram
 - Implementing SQL tables and sample data
 - Querying the database using JOINs, aggregations, and data formatting
 - Demonstrating indexing and other basic optimization concepts
@@ -21,7 +20,7 @@ This project was developed using the following tools and technologies:
 - Microsoft SQL Server Express 2022 — database engine used for creating and testing the inventory system
 - SQL Server Management Studio (SSMS) 20.2.1 — primary environment for writing and executing SQL scripts
 - Transact-SQL (T-SQL) — SQL dialect used for schema definitions, queries, and reference scripts
-- **Draw.io (diagrams.net) — used to create the Entity–Relationship (ER) diagram**
+- **Draw.io (diagrams.net) — used to create the Schema Diagram**
 - Windows 11 environment — the platform the database is running on
 - GitHub — version control and project hosting
 - Markdown — for structured documentation
@@ -36,7 +35,6 @@ SQL-Computer-Inventory/
 │   ├── business-plan.md
 │   ├── business-rules.md
 │   ├── entities.md
-│   ├── er-diagram.png
 │   ├── indexing.md    
 │   └── normalization.md
 │
