@@ -64,7 +64,7 @@ SQL-Computer-Inventory/
 │       └── reporting-views.sql
 │
 └── output/
-    ├── sample-query-results/
+    ├── sample-query-results/  **to be added**
     └── schema-diagram.png
 </PRE>
 
