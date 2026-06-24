@@ -1,6 +1,5 @@
 # SQL-Computer-Inventory
-A fictional IT Asset &amp; Computer Inventory Database — designed to demonstrate SQL relational modeling, data normalization, and practical query skills.
-
+Relational database design, normalization, SQL querying, and reporting supporting inventory management and operational analysis for a fictional IT Asset &amp; Computer Inventory Database.
 ## Overview
 
 This repository contains a complete SQL portfolio project centered around a fictional IT Asset Inventory System. The goal is to demonstrate practical SQL abilities relevant to systems administration, IT asset management, reporting, and analytical work — including:
